@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Reportes - ReportaBC</title>
+  <link rel="stylesheet" href="css/mapa.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       ENCABEZADO
+       ============================================= -->
+  <header id="encabezado">
+    <nav id="menu-navegacion">
+      <div class="logo">
+        <a href="index.html"><h1>ReportaBC</h1></a>
+      </div>
+      <ul class="menu-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mapa.html" class="activo">Ver Reportes</a></li>
+        <li><a href="reportar.html">Reportar Residuo</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="registro.html">Registrarse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       CONTENIDO PRINCIPAL
+       ============================================= -->
+  <main id="contenido-principal" class="layout-mapa">
+
+    <!-- Panel lateral: filtros y lista de reportes -->
+    <aside id="panel-lateral" class="panel-lateral">
+
+      <!-- Filtros -->
+      <section id="seccion-filtros" class="filtros">
+        <h2>Filtrar reportes</h2>
+
+        <div class="campo">
+          <label for="filtro-tipo">Tipo de residuo</label>
+          <select id="filtro-tipo">
+            <option value="todos">Todos</option>
+            <option value="basura-general">Basura general</option>
+            <option value="escombros">Escombros</option>
+            <option value="electrodomesticos">Electrodomésticos</option>
+            <option value="organico">Orgánicos</option>
+            <option value="peligroso">Peligrosos</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="filtro-estado">Estado del reporte</label>
+          <select id="filtro-estado">
+            <option value="todos">Todos</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="en-proceso">En proceso</option>
+            <option value="resuelto">Resuelto</option>
+          </select>
+        </div>
+
+        <button class="boton boton-secundario" id="btn-aplicar-filtros">Aplicar filtros</button>
+      </section>
+
+      <!-- Lista de reportes -->
+      <section id="seccion-lista-reportes" class="lista-reportes">
+        <h2>Reportes activos</h2>
+        <div id="lista-reportes-container">
+          <!-- Los reportes se cargan aquí con JavaScript -->
+          <p class="placeholder-texto">Cargando reportes...</p>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- Mapa principal -->
+    <section id="seccion-mapa" class="seccion-mapa">
+      <div id="mapa-principal" class="mapa-principal">
+        <!-- El mapa interactivo se carga aquí (Leaflet / Google Maps) -->
+        <p class="placeholder-mapa">El mapa de Baja California se cargará aquí</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       PIE DE PÁGINA
+       ============================================= -->
+  <footer id="pie-pagina">
+    <div class="footer-contenido">
+      <p>ReportaBC &copy; 2024 — Proyecto comunitario de Baja California</p>
+      <nav class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="reportar.html">Reportar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="login.html">Acceder</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/mapa.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="archivo.css">
+</head>
+<body>
+<form id="Formulario" class="login-form">
+<div class="formulario">
+<h2>Formulario</h2>
+
+<div class="input-group">
+    <input type="text" required placeholder="Nombre">
+</div>
+<div class="input-group">
+    <input type="text" required placeholder="Ciudad ">
+</div>
+<div class="input-group">
+    <input type="text" required placeholder="Direccion">
+</div>
+<div class="input-group">
+    <input type="text" required placeholder="Es residente de Valle de las Palmas? ">
+</div>
+<button type="submit">Enviar</button>
+</form>
+
+</div>
+
+<script>
+    document.getElementById("miFormulario").addEventListener("submit", function(event) {
+    
+        event.preventDefault();
+        this.reset();
+});
+</script>
+</body>
+</html>

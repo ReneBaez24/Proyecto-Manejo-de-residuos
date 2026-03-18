@@ -4,7 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Detalle del Reporte - ReportaBC</title>
-  <link rel="stylesheet" href="css/detalle.css" />
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="../assets/detalle.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -90,10 +98,9 @@
 
         <!-- Columna derecha: mapa del punto y acciones -->
         <div class="detalle-derecha">
-          <div id="mapa-detalle" class="mapa-detalle">
-            <!-- Mini mapa con el punto exacto -->
-            <p class="placeholder-mapa">Ubicación en el mapa</p>
-          </div>
+
+          <!-- Mini mapa con el punto exacto — vacío para que Leaflet lo llene -->
+          <div id="mapa-detalle" class="mapa-detalle"></div>
 
           <!-- Acciones para recolectores (se muestra solo si el usuario es recolector) -->
           <div id="acciones-recolector" class="acciones-recolector" style="display:none;">
@@ -107,6 +114,7 @@
             <a href="mapa.html" class="boton boton-secundario">Volver al mapa</a>
             <a href="reportar.html" class="boton boton-primario">Hacer un reporte</a>
           </div>
+
         </div>
 
       </div>
@@ -131,5 +139,27 @@
 
   <script src="js/main.js"></script>
   <script src="js/detalle.js"></script>
+
+  <!-- Mapa del punto exacto del reporte -->
+  <script>
+    // Coordenadas del reporte — estas se pueden cambiar dinámicamente con JavaScript
+    var latitud  = 32.5100;
+    var longitud = -117.0450;
+
+    // Crear el mapa centrado en el punto del reporte
+    var mapaDetalle = L.map('mapa-detalle').setView([latitud, longitud], 15);
+
+    // Cargar imágenes del mapa desde OpenStreetMap (gratuito, sin API key)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mapaDetalle);
+
+    // Marcador en el punto exacto del reporte
+    L.marker([latitud, longitud])
+      .addTo(mapaDetalle)
+      .bindPopup('Ubicación del residuo')
+      .openPopup();
+  </script>
+
 </body>
 </html>

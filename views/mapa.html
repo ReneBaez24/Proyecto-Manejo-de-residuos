@@ -4,7 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mapa de Reportes - ReportaBC</title>
-  <link rel="stylesheet" href="css/mapa.css" />
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="../assets/mapa.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -67,7 +75,6 @@
       <section id="seccion-lista-reportes" class="lista-reportes">
         <h2>Reportes activos</h2>
         <div id="lista-reportes-container">
-          <!-- Los reportes se cargan aquí con JavaScript -->
           <p class="placeholder-texto">Cargando reportes...</p>
         </div>
       </section>
@@ -76,10 +83,8 @@
 
     <!-- Mapa principal -->
     <section id="seccion-mapa" class="seccion-mapa">
-      <div id="mapa-principal" class="mapa-principal">
-        <!-- El mapa interactivo se carga aquí (Leaflet / Google Maps) -->
-        <p class="placeholder-mapa">El mapa de Baja California se cargará aquí</p>
-      </div>
+      <!-- El div debe estar vacío para que Leaflet lo llene -->
+      <div id="mapa-principal" class="mapa-principal"></div>
     </section>
 
   </main>
@@ -100,6 +105,33 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- Funcionamiento del mapa -->
+  <script>
+    // Crear el mapa centrado en Tijuana, Baja California
+    var mapa = L.map('mapa-principal').setView([32.5149, -117.0382], 12);
+
+    // Cargar imágenes del mapa desde OpenStreetMap 
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mapa);
+
+    // Reporte 1 - Alta urgencia
+    L.marker([32.5200, -117.0300])
+      .addTo(mapa)
+      .bindPopup('<b>Residuos peligrosos</b><br>Col. Libertad, Tijuana<br><a href="detalle.html">Ver detalle</a>');
+
+    // Reporte 2 - Media urgencia
+    L.marker([32.5100, -117.0450])
+      .addTo(mapa)
+      .bindPopup('<b>Escombros en banqueta</b><br>Mesa de Otay, Tijuana<br><a href="detalle.html">Ver detalle</a>');
+
+    // Reporte 3 - Baja urgencia
+    L.marker([32.5050, -117.0200])
+      .addTo(mapa)
+      .bindPopup('<b>Bolsas de basura</b><br>Chapultepec, Tijuana<br><a href="detalle.html">Ver detalle</a>');
+  </script>
+
   <script src="js/mapa.js"></script>
 </body>
 </html>

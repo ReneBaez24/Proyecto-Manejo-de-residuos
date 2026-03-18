@@ -81,3 +81,28 @@ button:hover {
     text-decoration: underline;
     opacity: 1;
 }
+
+
+.formulario{
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: #ba8b42;
+    border-radius: 8px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+
+label{
+    margin-top: 10px;
+    color: white;
+
+
+}
+
+
+
+

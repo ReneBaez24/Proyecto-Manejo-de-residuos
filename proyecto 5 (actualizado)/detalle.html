@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del Reporte - ReportaBC</title>
+
+  <!-- CSS del proyecto -->
+  <link rel="stylesheet" href="css/detalle.css" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <!-- =============================================
+       ENCABEZADO
+       ============================================= -->
+  <header id="encabezado">
+    <nav id="menu-navegacion">
+      <div class="logo">
+        <a href="index.html"><h1>ReportaBC</h1></a>
+      </div>
+      <ul class="menu-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mapa.html">Ver Reportes</a></li>
+        <li><a href="reportar.html">Reportar Residuo</a></li>
+        <li><a href="login.html">Iniciar Sesión</a></li>
+        <li><a href="registro.html">Registrarse</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       CONTENIDO PRINCIPAL
+       ============================================= -->
+  <main id="contenido-principal">
+
+    <!-- Ruta de navegación (breadcrumb) -->
+    <nav id="ruta-navegacion" class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span>&rsaquo;</span>
+      <a href="mapa.html">Reportes</a>
+      <span>&rsaquo;</span>
+      <span>Detalle del reporte</span>
+    </nav>
+
+    <section id="seccion-detalle-reporte" class="seccion-detalle">
+
+      <!-- Encabezado del reporte -->
+      <div class="detalle-encabezado">
+        <h2 id="titulo-reporte">Cargando reporte...</h2>
+        <span id="estado-badge" class="badge badge-pendiente">Pendiente</span>
+      </div>
+
+      <!-- Contenido del reporte en dos columnas -->
+      <div class="detalle-contenido">
+
+        <!-- Columna izquierda: info y foto -->
+        <div class="detalle-izquierda">
+          <div class="detalle-foto">
+            <img id="foto-reporte" src="img/sin-foto.png" alt="Foto del residuo reportado" />
+          </div>
+
+          <div class="detalle-info">
+            <table class="tabla-info">
+              <tr>
+                <th>Tipo de residuo:</th>
+                <td id="tipo-reporte">—</td>
+              </tr>
+              <tr>
+                <th>Urgencia:</th>
+                <td id="urgencia-reporte">—</td>
+              </tr>
+              <tr>
+                <th>Ubicación:</th>
+                <td id="ubicacion-reporte">—</td>
+              </tr>
+              <tr>
+                <th>Fecha del reporte:</th>
+                <td id="fecha-reporte">—</td>
+              </tr>
+              <tr>
+                <th>Reportado por:</th>
+                <td id="autor-reporte">Anónimo</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="detalle-descripcion">
+            <h3>Descripción</h3>
+            <p id="descripcion-reporte">Cargando descripción...</p>
+          </div>
+        </div>
+
+        <!-- Columna derecha: mapa del punto y acciones -->
+        <div class="detalle-derecha">
+
+          <!-- Mini mapa con el punto exacto — vacío para que Leaflet lo llene -->
+          <div id="mapa-detalle" class="mapa-detalle"></div>
+
+          <!-- Acciones para recolectores (se muestra solo si el usuario es recolector) -->
+          <div id="acciones-recolector" class="acciones-recolector" style="display:none;">
+            <h3>Acciones del recolector</h3>
+            <button class="boton boton-primario" id="btn-aceptar-reporte">Aceptar este reporte</button>
+            <button class="boton boton-secundario" id="btn-marcar-resuelto">Marcar como resuelto</button>
+          </div>
+
+          <!-- Acciones generales -->
+          <div class="acciones-generales">
+            <a href="mapa.html" class="boton boton-secundario">Volver al mapa</a>
+            <a href="reportar.html" class="boton boton-primario">Hacer un reporte</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       PIE DE PÁGINA
+       ============================================= -->
+  <footer id="pie-pagina">
+    <div class="footer-contenido">
+      <p>ReportaBC &copy; 2024 — Proyecto comunitario de Baja California</p>
+      <nav class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="reportar.html">Reportar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="login.html">Acceder</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/detalle.js"></script>
+
+  <!-- Mapa del punto exacto del reporte -->
+  <script>
+    // Coordenadas del reporte — estas se pueden cambiar dinámicamente con JavaScript
+    var latitud  = 32.5100;
+    var longitud = -117.0450;
+
+    // Crear el mapa centrado en el punto del reporte
+    var mapaDetalle = L.map('mapa-detalle').setView([latitud, longitud], 15);
+
+    // Cargar imágenes del mapa desde OpenStreetMap (gratuito, sin API key)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mapaDetalle);
+
+    // Marcador en el punto exacto del reporte
+    L.marker([latitud, longitud])
+      .addTo(mapaDetalle)
+      .bindPopup('Ubicación del residuo')
+      .openPopup();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Recolector - ReportaBC</title>
+  <link rel="stylesheet" href="css/recolector.css"/>
+</head>
+<body>
+
+  <!-- =============================================
+       ENCABEZADO
+       ============================================= -->
+  <header id="encabezado">
+    <nav id="menu-navegacion">
+      <div class="logo">
+        <a href="index.html"><h1>ReportaBC</h1></a>
+      </div>
+      <ul class="menu-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mapa.html">Ver Reportes</a></li>
+        <li><a href="reportar.html">Reportar Residuo</a></li>
+        <li><a href="recolector.html" class="activo">Panel Recolector</a></li>
+        <li><a href="login.html">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       CONTENIDO PRINCIPAL
+       ============================================= -->
+  <main id="contenido-principal">
+
+    <section id="seccion-panel-recolector" class="panel-recolector">
+
+      <!-- Encabezado del panel con datos del recolector -->
+      <div class="panel-encabezado">
+        <div class="recolector-info">
+          <div id="avatar-recolector" class="avatar">R</div>
+          <div>
+            <h2 id="nombre-recolector">Nombre del Recolector</h2>
+            <p id="zona-recolector">Zona: Tijuana Norte</p>
+          </div>
+        </div>
+        <div class="panel-estadisticas">
+          <div class="mini-stat">
+            <span id="stat-aceptados">0</span>
+            <span>Aceptados</span>
+          </div>
+          <div class="mini-stat">
+            <span id="stat-resueltos">0</span>
+            <span>Resueltos</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs: Reportes disponibles / Mis reportes -->
+      <div class="tabs" id="tabs-recolector">
+        <button class="tab activo" data-tab="disponibles">Reportes disponibles</button>
+        <button class="tab" data-tab="mis-reportes">Mis reportes aceptados</button>
+        <button class="tab" data-tab="historial">Historial</button>
+      </div>
+
+      <!-- Contenido tab: Reportes disponibles -->
+      <div id="tab-disponibles" class="tab-contenido activo">
+        <h3>Reportes sin recolector asignado</h3>
+
+        <!-- Filtro rápido por urgencia -->
+        <div class="filtro-rapido">
+          <button class="filtro-chip activo" data-urgencia="todos">Todos</button>
+          <button class="filtro-chip urgencia-alta" data-urgencia="alta">Alta urgencia</button>
+          <button class="filtro-chip urgencia-media" data-urgencia="media">Media urgencia</button>
+          <button class="filtro-chip urgencia-baja" data-urgencia="baja">Baja urgencia</button>
+        </div>
+
+        <!-- Lista de reportes disponibles -->
+        <div id="lista-disponibles" class="lista-reportes-recolector">
+          <!-- Se carga con JavaScript -->
+          <p class="placeholder-texto">Cargando reportes disponibles...</p>
+        </div>
+      </div>
+
+      <!-- Contenido tab: Mis reportes aceptados -->
+      <div id="tab-mis-reportes" class="tab-contenido" style="display:none;">
+        <h3>Reportes que has aceptado</h3>
+        <div id="lista-mis-reportes" class="lista-reportes-recolector">
+          <p class="placeholder-texto">No tienes reportes aceptados actualmente.</p>
+        </div>
+      </div>
+
+      <!-- Contenido tab: Historial -->
+      <div id="tab-historial" class="tab-contenido" style="display:none;">
+        <h3>Reportes resueltos</h3>
+        <div id="lista-historial" class="lista-reportes-recolector">
+          <p class="placeholder-texto">Tu historial de reportes resueltos aparecerá aquí.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       PIE DE PÁGINA
+       ============================================= -->
+  <footer id="pie-pagina">
+    <div class="footer-contenido">
+      <p>ReportaBC &copy; 2024 — Proyecto comunitario de Baja California</p>
+      <nav class="footer-links">
+        <a href="index.html">Inicio</a>
+        <a href="reportar.html">Reportar</a>
+        <a href="mapa.html">Mapa</a>
+        <a href="login.html">Acceder</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/recolector.js"></script>
+</body>
+</html>

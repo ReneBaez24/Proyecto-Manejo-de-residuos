@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+
+.login-container {
+    background: rgba(46, 105, 51, 0.734);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center;
+}
+
+
+h2 {
+    color: white;
+    margin-bottom: 30px;
+    font-weight: 700;       
+    font-size: 2.3rem;     
+  
+}
+p {
+    color: white;
+    margin-bottom: 30px;
+   
+    font-size: 1.3rem;     
+  
+}
+.input-group {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    outline: none;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color:#BA8B42;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #966e31d1;
+    transform: translateY(-2px);
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    opacity: 1;
+}

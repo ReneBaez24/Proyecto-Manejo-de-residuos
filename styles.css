@@ -13,7 +13,11 @@ body {
 
 /* Barra de navegación */
 .navbar {
-    background-color: #2e2d2d;
+  
+    background-color: rgba(46, 105, 51, 0.734);
+    padding: 15px 0;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -27,23 +31,31 @@ body {
 
 .nav-left, .nav-right {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 .nav-link {
-    color: white;
+    color: #f4f7f4; 
     text-decoration: none;
-    padding: 8px 16px;
+    padding: 12px 24px; 
+    
+    font-size: 1.1rem;     
+    font-weight: 600;      
+    letter-spacing: 0.5px; 
+    text-transform: capitalize; 
+    
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: inline-block; 
 }
 
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
+.nav-link:hover {
+    background-color: #bc8f4f; 
+    color: white;
+    transform: translateY(-2px); 
 }
 
-p {
-    color: #666;
-    line-height: 1.6;
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
 }
-

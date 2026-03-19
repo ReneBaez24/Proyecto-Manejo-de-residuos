@@ -59,3 +59,10 @@ body {
 .nav-link.active {
     background-color: rgba(255, 255, 255, 0.2);
 }
+.logoimg {
+    width: 600px;
+    height: auto;
+    display: block;
+    margin: 40px auto;
+}
+

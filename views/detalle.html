@@ -7,6 +7,8 @@
 
   <!-- CSS del proyecto -->
   <link rel="stylesheet" href="../assets/detalle.css" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -19,21 +21,26 @@
   <!-- =============================================
        ENCABEZADO
        ============================================= -->
-  <header id="encabezado">
-    <nav id="menu-navegacion">
-      <div class="logo">
-        <a href="index.html"><h1>ReportaBC</h1></a>
-      </div>
-      <ul class="menu-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="mapa.html">Ver Reportes</a></li>
-        <li><a href="reportar.html">Reportar Residuo</a></li>
-        <li><a href="login.html">Iniciar Sesión</a></li>
-        <li><a href="registro.html">Registrarse</a></li>
-      </ul>
+ <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-link">Inicio</a> 
+                <!-- estructura para añadir mas cosas a la navegacion -->
+                
+                <a href="mapa.html" class="nav-link">Mapa</a>
+                <a href="detalle.html" class="nav-link">Detalle</a>
+                <a href="recolector.html" class="nav-link">Recolectores</a>
+                
+                <a href="reportar.html" class="nav-link">Reportar</a>
+            
+            </div>
+            <div class="nav-right">
+                <a href="iniciodesesion.html" class="nav-link">Login</a>
+                <a href="formulario.html" class="nav-link">Registro</a>
+                
+            </div>
+        </div>
     </nav>
-  </header>
-
   <!-- =============================================
        CONTENIDO PRINCIPAL
        ============================================= -->

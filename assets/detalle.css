@@ -222,3 +222,52 @@
     width: 100%;
   }
 }
+
+/* Barra de navegación */
+.navbar {
+  
+    background-color: rgba(46, 105, 51, 0.734);
+    padding: 15px 0;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    color: #f4f7f4; 
+    text-decoration: none;
+    padding: 12px 24px; 
+    
+    font-size: 1.1rem;     
+    font-weight: 600;      
+    letter-spacing: 0.5px; 
+    text-transform: capitalize; 
+    
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: inline-block; 
+}
+
+
+.nav-link:hover {
+    background-color: #bc8f4f; 
+    color: white;
+    transform: translateY(-2px); 
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
